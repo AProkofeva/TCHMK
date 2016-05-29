@@ -65,13 +65,6 @@ BigInt BigInt::operator/(const BigInt& rv) {
 	temp.base = base;
 	return temp;
 }
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//BigInt BigInt::operator^(const BigInt& rv)  {
-//	BigInt temp;
-//	temp.value = Pow(value,rv.value,value,base);//Pow(int* a,int* b,int* c, int *m, int base)
-//	temp.base = base;
-//	return temp;
-//}
 
 BigInt BigInt::operator%(const BigInt& rv)  {
 	BigInt temp;
@@ -145,7 +138,7 @@ BigInt BigInt::Copy(BigInt a)
 BigInt BigInt::Power(BigInt a,BigInt b,BigInt m)
 {
 		BigInt res;
-		value = Pow(a.value,b.value, value, m.value, a.base);//ф-я от трех объектов
+		value = Pow(a.value,b.value, value, m.value, a.base);//function from three arguments
 		base = a.base;
 		return *this;
 }
@@ -223,12 +216,8 @@ int* BigInt::ReadFile(char* fileName,bool bin)
 		for (int i = size; i > 0; i--) 
 			mas[i] = fgetc(fp)-'0';
 	mas[0] = size;
-	/*for (int i = 0; i <size+1; i++)
-		printf("%d",mas[i]);
-	printf("\t");*/
     fclose(fp);
     return mas;
-	//if(mas[mas[0]] == -3 && flag == "r")
 	if(mas[mas[0]] == -3)
     {
          mas[0]--;
@@ -279,12 +268,9 @@ void BigInt::WriteFile(int *mas,char *fileName,bool bin)
 			putc('-', fp);
 		int s = mas[0];
 		reverse_num(mas, mas[0]);
-		//printf("\t");
 		for (int i= 0; i < s; i++)
 		{		
-			//printf("%d",mas[i]);
 			c = mas[i] + '0';
-			//putc(mas[i], fp);
 			putc(c,fp);
 		}
 	}
@@ -373,13 +359,7 @@ int* BigInt::MinMax(int* a,int* b,char type)
 
 int* BigInt::DeleteNull(int* c)
  {
-    /*for(int i = c[0]; i>1; i--)
-	{
-		if(c[i] == 0) c[0]--;
-		else break;
-	}
-	return c;*/
-	for(int i = c[0]; i>1; i--)
+    for(int i = c[0]; i>1; i--)
 	{
 		if( !(c[0] == 1 && c[1] == 0))
 		{
@@ -737,11 +717,6 @@ int* BigInt::Pow(int* a,int* b,int* c, int *m, int base)
 			 {
 				 f[i] = 0;
 			 }
-            /* a = CopyArray(a,new_f,true);
-			 for (int i = 0; i < new_f[0]+1; i++)
-			 {
-				 new_f[i] = 0;
-			 }*/
          }
          else{
             for (int i = 0; i < q[0]+1; i++)
@@ -749,18 +724,13 @@ int* BigInt::Pow(int* a,int* b,int* c, int *m, int base)
 				 q[i] = 0;
 			 }
             f = Subtraction(b,one,f,base);
-			//system("pause");
 			b = CopyArray(b,f,true);
 		    free(f);
             f = Multiplication(c,a,f,base);
             free(c);
 			c = Mod(f,m,base);
-			//c = CopyArray(c,f,false);			
 			free(f);	
 			}	
-		/* printf("\n");
-		 for (int i = 0; i < b[0]+1; i++)
-			 printf("%d", b[i]);*/
      }
 
 	if(A_negative && paritet) c[0]*=-1;
