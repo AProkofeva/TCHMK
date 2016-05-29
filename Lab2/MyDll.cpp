@@ -11,9 +11,9 @@ int main(int argc, char* argv[])
 {
 	bool bin, res;
 	int base = 10;
-		bool ModBool = true;
-		printf("Enter string in such way:\n");
-		printf("[name of program] [file1] [operator] [file2] [result file] [-b] [mod file]\n");
+    bool ModBool = true;
+    printf("Enter string in such way:\n");
+    printf("[name of program] [file1] [operator] [file2] [result file] [-b] [mod file]\n");
 	char *file1 = argv[1];
 	char *oper = argv[2];
 	char *file2 =argv[3];
