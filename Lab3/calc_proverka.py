@@ -1,7 +1,7 @@
 	
-f = open("1b.txt") 
-g = open("2b.txt") 
-h = open("4b.txt") 
+f = open("1.txt") 
+g = open("2.txt") 
+h = open("4.txt") 
 x=int(f.read()) 
 y=int(g.read()) 
 z=int(h.read())
